@@ -1,17 +1,34 @@
 ---
 name: tdd
-description: Build features or fixes test-first with a red-green-refactor loop, vertical slices, and behavior-focused tests.
+description: Build features or fixes test-first with a red-green-refactor loop, vertical slices, and behaviour-focused tests.
 ---
 
-# Test-Driven Development
+# Test-driven development
 
-## Workflow
+Use a red-green-refactor loop to deliver one observable behaviour at a time.
+Follow the repository's existing test layout and prefer its documented task
+runner or validation commands over introducing new tooling.
 
-1. Choose the highest useful existing seam and define one observable behavior.
-2. Write one independent failing test for that behavior and watch it fail for the intended reason.
-3. Implement only enough production code to pass it.
-4. Repeat one vertical slice at a time across the required layers.
-5. Refactor after the behavior is green, keeping the public seam stable.
-6. Run focused checks throughout and the repository's complete validation at the end.
+## Work in vertical slices
 
-Avoid tests coupled to private methods, internal mocks, or expected values recomputed from the implementation. Do not write all tests first or add speculative behavior.
+1. Choose the highest useful existing seam and state the behaviour in user or
+   caller terms.
+2. Add one independent test and run it. Record why it failed so a syntax error,
+   fixture problem, or unrelated failure is not mistaken for red.
+3. Add only the production code required to make that behaviour green.
+4. Run the focused test and nearby regression checks.
+5. Refactor names, duplication, and boundaries while keeping the behaviour
+   green and the public seam stable.
+6. Repeat for the next required behaviour.
+
+Prefer tests of public effects over private methods, implementation-shaped
+mocks, or expected values recomputed from the code under test. Do not add
+test-only production interfaces or speculative behaviour.
+Do not batch-write the full test suite before producing the first green slice.
+
+## Verify the result
+
+Run the repository's complete applicable validation before completion. Report
+the red evidence, green evidence, full checks run, and any check that could not
+be run. A test that never demonstrated the intended failure does not establish
+the regression guard.
