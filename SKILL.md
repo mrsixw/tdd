@@ -1,13 +1,14 @@
 ---
 name: tdd
-description: Build features or fixes test-first with a red-green-refactor loop, vertical slices, and behaviour-focused tests.
+description: Build a feature or fix whose desired behaviour is known, test-first, using a red-green-refactor loop, vertical slices, and behaviour-focused tests. Use when the user asks for test-first or TDD development. Not for bugs whose cause is still unknown (start with diagnose-bug).
 ---
 
 # Test-driven development
 
 Use a red-green-refactor loop to deliver one observable behaviour at a time.
 Follow the repository's existing test layout and prefer its documented task
-runner or validation commands over introducing new tooling.
+runner or validation commands over introducing new tooling. When a bug's cause
+is still unknown, start with `diagnose-bug`.
 
 ## Work in vertical slices
 
