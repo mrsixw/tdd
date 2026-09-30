@@ -2,3 +2,5 @@ interface:
   display_name: "Test-Driven Development"
   short_description: "Build behavior with red-green-refactor"
   default_prompt: "Use $tdd to build this feature or fix test-first."
+policy:
+  allow_implicit_invocation: false
