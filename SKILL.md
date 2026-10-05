@@ -23,7 +23,10 @@ is still unknown, start with `diagnose-bug`.
 6. Repeat for the next required behaviour.
 
 Prefer tests of public effects over private methods, implementation-shaped
-mocks, or expected values recomputed from the code under test. Do not add
+mocks, or expected values recomputed from the code under test. Write each test
+with `boundary-testing`: drive the seam for real, replace only the systems
+beyond it with established test libraries and test a complex algorithm directly
+with its edge cases as well. Do not add
 test-only production interfaces or speculative behaviour.
 Do not batch-write the full test suite before producing the first green slice.
 
