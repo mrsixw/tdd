@@ -13,7 +13,8 @@ is still unknown, start with `diagnose-bug`.
 ## Work in vertical slices
 
 1. Choose the highest useful existing seam and state the behaviour in user or
-   caller terms.
+   caller terms. `boundary-testing` identifies that seam and the systems to
+   replace beyond it; follow it for the shape of every test in this loop.
 2. Add one independent test and run it. Record why it failed so a syntax error,
    fixture problem, or unrelated failure is not mistaken for red.
 3. Add only the production code required to make that behaviour green.
@@ -22,10 +23,9 @@ is still unknown, start with `diagnose-bug`.
    green and the public seam stable.
 6. Repeat for the next required behaviour.
 
-Prefer tests of public effects over private methods, implementation-shaped
-mocks, or expected values recomputed from the code under test. Do not add
-test-only production interfaces or speculative behaviour.
-Do not batch-write the full test suite before producing the first green slice.
+`boundary-testing` governs what each test drives and what it fakes. Beyond it,
+do not add test-only production interfaces or speculative behaviour, and do not
+batch-write the full test suite before producing the first green slice.
 
 ## Verify the result
 
