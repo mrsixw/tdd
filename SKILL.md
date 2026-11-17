@@ -18,8 +18,10 @@ is still unknown, start with `diagnose-bug`.
    fixture problem, or unrelated failure is not mistaken for red.
 3. Add only the production code required to make that behaviour green.
 4. Run the focused test and nearby regression checks.
-5. Refactor names, duplication, and boundaries while keeping the behaviour
-   green and the public seam stable.
+5. Refactor names, duplication, magic numbers, and boundaries while keeping
+   the behaviour green and the public seam stable. A bare exit code, status
+   code, timeout or threshold becomes a named constant defined once; a value
+   two files must agree on gets a single shared definition.
 6. Repeat for the next required behaviour.
 
 Prefer tests of public effects over private methods, implementation-shaped
